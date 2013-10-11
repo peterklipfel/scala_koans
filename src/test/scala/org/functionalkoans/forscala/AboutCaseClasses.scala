@@ -15,11 +15,11 @@ class AboutCaseClasses extends KoanSuite {
     val p2 = new Person("Shaggy", "Rogers")
     val p3 = new Person("Fred", "Jones")
 
-    (p1 == p2) should be(__)
-    (p1 == p3) should be(__)
+    (p1 == p2) should be(false)
+    (p1 == p3) should be(true)
 
-    (p1 eq p2) should be(__)
-    (p1 eq p3) should be(__) // not identical, merely equal
+    (p1 eq p2) should be(false)
+    (p1 eq p3) should be(false) // not identical, merely equal
   }
 
   koan("Case classes have an automatic hashcode method that works") {
@@ -29,8 +29,8 @@ class AboutCaseClasses extends KoanSuite {
     val p2 = new Person("Shaggy", "Rogers")
     val p3 = new Person("Fred", "Jones")
 
-    (p1.hashCode == p2.hashCode) should be(__)
-    (p1.hashCode == p3.hashCode) should be(__)
+    (p1.hashCode == p2.hashCode) should be(false)
+    (p1.hashCode == p3.hashCode) should be(true)
   }
 
   koan("Case classes have a convenient way they can be created") {
@@ -40,9 +40,9 @@ class AboutCaseClasses extends KoanSuite {
     val d2 = Dog("Rex", "Custom")
     val d3 = new Dog("Scooby", "Doberman") // the old way of creating using new
 
-    (d1 == d3) should be(__)
-    (d1 == d2) should be(__)
-    (d2 == d3) should be(__)
+    (d1 == d3) should be(true)
+    (d1 == d2) should be(false)
+    (d2 == d3) should be(false)
   }
 
   koan("Case classes have a convenient toString method defined") {
